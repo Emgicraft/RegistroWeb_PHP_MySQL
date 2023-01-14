@@ -51,38 +51,29 @@
 	</form>
 	<br>
 
+	<table border=1>
+		<tr>
+			<th>Código</th>
+			<th>Descripcion</th>
+			<th>Categoria</th>
+			<th>Precio S/.</th>
+		</tr>
+
 	<?php
-		echo "
-		<table border=1>
-		  <tr>
-		    <th>Código</th>
-		    <th>Descripcion</th>
-		    <th>Categoria</th>
-		    <th>Precio</th>
-		  </tr>
-		";
-		
 		foreach ($tabla as $registro) {
-			echo "<tr>";
-
-			echo "<td>";
-			echo $registro["id"];
-			echo "</td>";
-
-			echo "<td>";
-			echo $registro["descripcion"];
-			echo "</td>";
-
-			echo "<td>";
-			echo $registro["categoria"];
-			echo "</td>";
-			
-			echo "<td>";
-			echo $registro["precio"];
-			echo "</td></tr>";
-		}
-
-		echo "</table>";
 	?>
+
+		<tr>
+			<td><?php echo $registro["id"]; ?></td>
+			<td><?php echo $registro["descripcion"]; ?></td>
+			<td><?php echo $registro["categoria"]; ?></td>
+			<td><?php echo $registro["precio"]; ?></td>
+		</tr>
+
+	<?php
+		}
+	?>
+
+	</table>
 </body>
 </html>
