@@ -28,7 +28,11 @@
 			$cnx = new PDO($cdn, $usr, $clv); // cadena, usuario, clave
 
 			// Preparar la sentencia SQL:
-			$sentencia = $cnx->prepare("select * from producto");
+			//$sentencia = $cnx->prepare("select * from producto");
+			$sentencia = $cnx->prepare("SELECT * FROM producto WHERE descripcion LIKE CONCAT('%', ':dscr', '%');");
+
+			// Pasamos el parámetr SQL:
+			$sentencia->bindvalue(":dscr", $valor);
 
 			// Ejecutamos dicha sentencia:
 			$sentencia->execute();
@@ -54,8 +58,8 @@
 	<table border=1>
 		<tr>
 			<th>Código</th>
-			<th>Descripcion</th>
-			<th>Categoria</th>
+			<th>Descripción</th>
+			<th>Categoría</th>
 			<th>Precio S/.</th>
 		</tr>
 

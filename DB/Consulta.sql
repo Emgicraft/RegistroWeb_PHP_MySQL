@@ -88,4 +88,10 @@ insert into producto (descripcion,categoria,precio) values ('CERVEZA KLOSTERBIER
 insert into producto (descripcion,categoria,precio) values ('LICOR CLOUDBERRY','BEBIDAS',18);
 insert into producto (descripcion,categoria,precio) values ('SALSA VERDE ORIGINAL FRANKFURTER','CONDIMENTOS',13);
 
-select * from producto;
+SELECT * FROM producto WHERE precio<=18;
+
+SELECT * FROM producto WHERE categoria='bebidas';
+
+SELECT * FROM producto WHERE descripcion LIKE '%cerveza%';
+
+SELECT * FROM producto WHERE descripcion LIKE CONCAT('%', 'cerveza', '%');
