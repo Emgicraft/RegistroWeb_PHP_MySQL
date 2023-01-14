@@ -14,37 +14,35 @@
 
 	<!-- CODIGO PHP -->
 	<?php
+		// Inicializando otras variables:
+		$tabla = array();
+
 		// Si existe el valor enviado:
 		if (isset($_GET["txtValor"])) {
 			// Se recoje y almacena:
 			$valor = $_GET["txtValor"];
 
-			// Establecer conexión con la BD:
-			// Haciendo uso de la Tecnología PDO (PHP Data Object)
-			$cdn = "mysql:host=127.0.0.1;dbname=bdmarket";
-			$usr = "root";
-			$clv = "";
+			// Solo si la cadena es un poco laga, lo buscará:
+			if (strlen($valor)>=2) {
+				// Incluir un archivo PHP:
+				require_once "../config/conexion.php";
 
-			$cnx = new PDO($cdn, $usr, $clv); // cadena, usuario, clave
+				// Preparar la sentencia SQL:
+				//$sentencia = $cnx->prepare("select * from producto");
+				$sentencia = $cnx->prepare("SELECT * FROM producto WHERE descripcion LIKE CONCAT('%', :dscr, '%');");
 
-			// Preparar la sentencia SQL:
-			//$sentencia = $cnx->prepare("select * from producto");
-			$sentencia = $cnx->prepare("SELECT * FROM producto WHERE descripcion LIKE CONCAT('%', ':dscr', '%');");
+				// Pasamos el parámetr SQL:
+				$sentencia->bindvalue(":dscr", $valor);
 
-			// Pasamos el parámetr SQL:
-			$sentencia->bindvalue(":dscr", $valor);
+				// Ejecutamos dicha sentencia:
+				$sentencia->execute();
 
-			// Ejecutamos dicha sentencia:
-			$sentencia->execute();
-
-			// Recojemos las filas generadas en una matriz bidimensional:
-			$tabla = $sentencia->fetchAll();
+				// Recojemos las filas generadas en una matriz bidimensional:
+				$tabla = $sentencia->fetchAll();
+			}
 		} else {
 			// Sino, este será el valor predeterminado:
 			$valor = "";
-
-			// Inicializando otras variables:
-			$tabla = array();
 		}
 	?>
 
