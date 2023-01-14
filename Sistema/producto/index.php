@@ -38,6 +38,9 @@
 		} else {
 			// Sino, este será el valor predeterminado:
 			$valor = "";
+
+			// Inicializando otras variables:
+			$tabla = array();
 		}
 	?>
 
@@ -50,15 +53,22 @@
 
 	<?php
 		echo "
-		<table>
+		<table border=1>
 		  <tr>
+		    <th>Código</th>
 		    <th>Descripcion</th>
 		    <th>Categoria</th>
 		    <th>Precio</th>
 		  </tr>
 		";
+		
 		foreach ($tabla as $registro) {
 			echo "<tr>";
+
+			echo "<td>";
+			echo $registro["id"];
+			echo "</td>";
+
 			echo "<td>";
 			echo $registro["descripcion"];
 			echo "</td>";
