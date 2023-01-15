@@ -16,7 +16,7 @@
 			$precio = $_GET["txtPrecio"];
 
 			if ($id==0) {
-				// Insertar el nuevo Producto
+				// Insertar el nuevo Producto //
 				// Incluir un archivo PHP:
 				require_once "../config/conexion.php";
 
@@ -31,8 +31,20 @@
 				// Ejecutamos la sentencia SQL:
 				$sentencia->execute();
 
-				// Recojemos las filas generadas en una matriz bidimensional:
-				$tabla = $sentencia->fetchAll();
+
+				// Recuperar el ID del nuevo producto //
+
+				// Preparamos otra sentencia SQL:
+				$sentencia = $cnx->prepare("SELECT max(id) as nuevoID FROM producto;");
+
+				// Ejecutamos la sentencia SQL:
+				$sentencia->execute();
+
+				// Sabemos que es una sola fila, así que la recojemos:
+				$fila = $sentencia->fetch();
+
+				// Guardamos el nuevo ID:
+				$id = $fila["nuevoID"];
 			}
 			
 		} else {
