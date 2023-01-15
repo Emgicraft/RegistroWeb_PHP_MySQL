@@ -195,3 +195,5 @@ insert into cliente (nombre, numruc, direccion, telefono) values ('VF MOTOPARTS 
 insert into cliente (nombre, numruc, direccion, telefono) values ('VRAMEL CONTRATISTAS E.I.R.L.','20329847978','CALLAO','999888195');
 insert into cliente (nombre, numruc, direccion, telefono) values ('ZEUS PERU S.A.C','20545029406','LIMA','999888196');
 insert into cliente (nombre, numruc, direccion, telefono) values ('ZINSAC DEL PERU S.A.C.','20556578746','LIMA','999888197');
+
+SELECT * FROM cliente WHERE nombre LIKE CONCAT('%', 'atlas', '%');

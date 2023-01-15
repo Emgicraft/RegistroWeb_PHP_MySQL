@@ -21,6 +21,7 @@
 		if (isset($_GET["txtValor"])) {
 			// Se recoje y almacena:
 			$valor = $_GET["txtValor"];
+			$filtro = $_GET["lstCabecera"];
 
 			// Solo si la cadena es un poco laga, lo buscará:
 			if (strlen($valor)>=2) {
@@ -28,11 +29,24 @@
 				require_once "../config/conexion.php";
 
 				// Preparar la sentencia SQL:
-				//$sentencia = $cnx->prepare("select * from producto");
-				$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE nombre LIKE CONCAT('%', :nombre, '%');");
+				switch ($filtro) {
+					case 'id':
+						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE id LIKE CONCAT('%', :vlr, '%');"); break;
+					case 'nombre':
+						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE nombre LIKE CONCAT('%', :vlr, '%');"); break;
+					case 'numruc':
+						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE numruc LIKE CONCAT('%', :vlr, '%');"); break;
+					case 'direccion':
+						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE direccion LIKE CONCAT('%', :vlr, '%');"); break;
+					case 'telefono':
+						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE telefono LIKE CONCAT('%', :vlr, '%');"); break;
+					default:
+						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE nombre LIKE CONCAT('%', :vlr, '%');"); break;
+				}
+				
 
-				// Pasamos el parámetr SQL:
-				$sentencia->bindvalue(":nombre", $valor);
+				// Pasamos el parámetro SQL:
+				$sentencia->bindvalue(":vlr", $valor);
 
 				// Ejecutamos dicha sentencia:
 				$sentencia->execute();
@@ -43,11 +57,20 @@
 		} else {
 			// Sino, este será el valor predeterminado:
 			$valor = "";
+			$filtro = "";
 		}
 	?>
 
 	<form method="get">
-		<label>Nombre del cliente a buscar:</label><br>
+		<label>Elija el campo y el valor a buscar:</label><br>
+		<select name="lstCabecera" required>
+			<option value="selecciona">Selecciona una opción...</option>
+			<option value="id">Por código</option>
+			<option value="nombre">Por nombre</option>
+			<option value="numruc">Por RUC</option>
+			<option value="direccion">Por dirección</option>
+			<option value="telefono">Por teléfono</option>
+		</select>
 		<input type="text" name="txtValor" value="<?php echo $valor ?>">
 		<input type="submit" name="btnBuscar" value="Buscar">
 	</form>
