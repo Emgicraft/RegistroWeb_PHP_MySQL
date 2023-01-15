@@ -3,12 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Producto</title>
 </head>
 <body>
 	<h1>Producto</h1><br>
 
-	<a href="..\">Retornar</a>
+	<table>
+		<tr><td><a href="..\">Retornar</a></td></tr>
+		<tr><td><a href="agregar_producto.php">Agregar un nuevo producto</a></td></tr>
+	</table>
 	
 	<hr>
 
@@ -49,7 +52,7 @@
 	<form method="get">
 		<label>Valor a buscar:</label>
 		<input type="text" name="txtValor" value="<?php echo $valor ?>">
-		<input type="submit" name="btnBuscar" value="Buscar">
+		<input type="submit" value="Buscar">
 	</form>
 	<br>
 

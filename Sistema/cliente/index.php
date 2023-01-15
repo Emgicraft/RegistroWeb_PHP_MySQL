@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Cliente</title>
 </head>
 <body>
 	<h1>Cliente</h1>
@@ -44,7 +44,6 @@
 						$sentencia = $cnx->prepare("SELECT * FROM cliente WHERE nombre LIKE CONCAT('%', :vlr, '%');"); break;
 				}
 				
-
 				// Pasamos el parámetro SQL:
 				$sentencia->bindvalue(":vlr", $valor);
 
@@ -61,7 +60,7 @@
 		}
 	?>
 
-	<form method="get">
+	<form> <!-- Por defecto es: method="get" -->
 		<label>Elija el campo y el valor a buscar:</label><br>
 		<select name="lstCabecera" required>
 			<option value="selecciona">Selecciona una opción...</option>
