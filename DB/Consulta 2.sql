@@ -196,4 +196,4 @@ insert into cliente (nombre, numruc, direccion, telefono) values ('VRAMEL CONTRA
 insert into cliente (nombre, numruc, direccion, telefono) values ('ZEUS PERU S.A.C','20545029406','LIMA','999888196');
 insert into cliente (nombre, numruc, direccion, telefono) values ('ZINSAC DEL PERU S.A.C.','20556578746','LIMA','999888197');
 
-SELECT * FROM cliente WHERE nombre LIKE CONCAT('%', 'atlas', '%');
+SELECT * FROM cliente WHERE id LIKE CONCAT('%', '2', '%');
