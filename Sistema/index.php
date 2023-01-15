@@ -11,6 +11,5 @@
 	<a href="cliente">Cliente</a>
 	<a href="producto">Producto</a>
 	<a href="ventas">Ventas</a>
-
 </body>
 </html>
