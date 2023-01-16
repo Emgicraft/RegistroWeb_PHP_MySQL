@@ -74,7 +74,7 @@
 			<td><?php echo $registro["categoria"]; ?></td>
 			<td><?php echo $registro["precio"]; ?></td>
 			<td><a href="<?php echo 'editar_producto.php?codProd='.$registro['id']; ?>">Editar</a></td>
-			<td><a href="">Eliminar</a></td>
+			<td><a href="<?php echo 'eliminar_producto.php?codProd='.$registro['id']; ?>">Eliminar</a></td>
 		</tr>
 
 	<?php

@@ -200,6 +200,10 @@ SELECT * FROM cliente WHERE id LIKE CONCAT('%', '4', '%');
 
 SELECT * FROM producto;
 
+SELECT * FROM producto WHERE id=33;
+
+UPDATE producto SET descripcion=, categoria=, precio= WHERE id=;
+
 SELECT max(id) as nuevoID FROM producto;
 
 DELETE FROM	producto WHERE id=79;
