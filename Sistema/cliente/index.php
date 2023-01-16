@@ -6,9 +6,12 @@
 	<title>Cliente</title>
 </head>
 <body>
-	<h1>Cliente</h1>
-	<br>
-	<a href="..\">Retornar</a>
+	<h1>Cliente</h1><br>
+	
+	<table>
+		<tr><td><a href="..\">Retornar</a></td></tr>
+		<tr><td><a href="agregar_cliente.php">Agregar un nuevo cliente</a></td></tr>
+	</table>
 
 	<hr>
 
