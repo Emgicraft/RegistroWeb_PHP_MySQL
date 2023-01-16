@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Producto</title>
+	<script type="text/javascript">
+		function confirmar(ruta) {
+			var r = confirm("¿Está seguro que desea continuar?");
+			parent.location = r ? ruta : "";
+		}
+	</script>
 </head>
 <body>
 	<h1>Producto</h1><br>
@@ -74,7 +80,7 @@
 			<td><?php echo $registro["categoria"]; ?></td>
 			<td><?php echo $registro["precio"]; ?></td>
 			<td><a href="<?php echo 'editar_producto.php?codProd='.$registro['id']; ?>">Editar</a></td>
-			<td><a href="<?php echo 'eliminar_producto.php?codProd='.$registro['id']; ?>">Eliminar</a></td>
+			<td><a href="javascript:confirmar('eliminar_producto.php?codProd=<?php echo $registro["id"]; ?>')">Eliminar</a></td>
 		</tr>
 
 	<?php
