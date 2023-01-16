@@ -208,6 +208,9 @@ SELECT max(id) as nuevoID FROM producto;
 
 DELETE FROM	producto WHERE id=79;
 
+SELECT DISTINCT categoria FROM producto;
+
+
 SELECT * FROM cliente;
 
 SELECT max(id) as nuevoID FROM cliente;

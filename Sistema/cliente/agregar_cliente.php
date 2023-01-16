@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Agregar nuevo producto</title>
+	<title>Agregar nuevo cliente</title>
 </head>
 <body>
-	<h1>Nuevo Producto</h1><br>
+	<h1>Nuevo Cliente</h1><br>
 
 	<?php
 		if (isset($_GET["txtID"])) {

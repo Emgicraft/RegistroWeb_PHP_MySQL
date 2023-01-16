@@ -66,9 +66,9 @@
 	<form> <!-- Por defecto es: method="get" -->
 		<label>Elija el campo y el valor a buscar:</label><br>
 		<select name="lstCabecera" required>
-			<option value="selecciona">Selecciona una opción...</option>
+			<!-- <option value="selecciona">Selecciona una opción...</option> -->
 			<option value="id">Por código</option>
-			<option value="nombre">Por nombre</option>
+			<option value="nombre" selected>Por nombre</option> <!--Default -->
 			<option value="numruc">Por RUC</option>
 			<option value="direccion">Por dirección</option>
 			<option value="telefono">Por teléfono</option>

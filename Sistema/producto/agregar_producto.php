@@ -48,6 +48,7 @@
 			}
 			
 		} else {
+			// Inicializamos las variables:
 			$id = 0;
 			$descripcion = "";
 			$categoria = "";
@@ -71,7 +72,33 @@
 
 			<tr>
 				<td><label>Categoría:</label></td>
-				<td><input type="text" name="txtCategoria" size="25" value="<?php echo $categoria ?>"></td>
+				<td>
+					<select name="txtCategoria">
+						<?php
+							// Conectamos con la BD:
+							require_once "../config/conexion.php";
+
+							// Preparamos la sentencia SQL:
+							$sentencia = $cnx->prepare("SELECT DISTINCT categoria FROM producto;");
+
+							// Ejecutamos la sentencia SQL:
+							$sentencia->execute();
+
+							// Guardamos los valores:
+							$columna = $sentencia->fetchAll();
+
+							foreach ($columna as $e) {
+						?>
+
+						<option value="<?php echo $e['categoria'] ?>"
+							<?php echo ($categoria==$e["categoria"]) ? "selected":""; ?>
+							><?php echo $e["categoria"] ?></option>
+
+						<?php
+							}
+						?>
+					</select>
+				</td>
 			</tr>
 
 			<tr>
