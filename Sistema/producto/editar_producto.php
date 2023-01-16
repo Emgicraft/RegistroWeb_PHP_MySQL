@@ -35,7 +35,7 @@
 		} elseif (isset($_GET["txtID"])) {
 			$id = $_GET["txtID"];
 			$descripcion = $_GET["txtDescripcion"];
-			$categoria = $_GET["txtCategoria"];
+			$categoria = $_GET["lstCategoria"];
 			$precio = $_GET["txtPrecio"];
 
 			// Conectamos con la BD:
@@ -78,7 +78,33 @@
 
 			<tr>
 				<td><label>Categoría:</label></td>
-				<td><input type="text" name="txtCategoria" size="25" value="<?php echo $categoria ?>"></td>
+				<td>
+					<select name="lstCategoria">
+						<?php
+							// Conectamos con la BD:
+							require_once "../config/conexion.php";
+
+							// Preparamos la sentencia SQL:
+							$sentencia = $cnx->prepare("SELECT DISTINCT categoria FROM producto;");
+
+							// Ejecutamos la sentencia SQL:
+							$sentencia->execute();
+
+							// Guardamos los valores:
+							$columna = $sentencia->fetchAll();
+
+							foreach ($columna as $e) {
+						?>
+
+						<option value="<?php echo $e['categoria'] ?>"
+							<?php echo ($categoria==$e["categoria"]) ? "selected":""; ?>
+							><?php echo $e["categoria"] ?></option>
+
+						<?php
+							}
+						?>
+					</select>
+				</td>
 			</tr>
 
 			<tr>

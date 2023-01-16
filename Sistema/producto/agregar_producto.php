@@ -12,7 +12,7 @@
 		if (isset($_GET["txtID"])) {
 			$id = $_GET["txtID"];
 			$descripcion = $_GET["txtDescripcion"];
-			$categoria = $_GET["txtCategoria"];
+			$categoria = $_GET["lstCategoria"];
 			$precio = $_GET["txtPrecio"];
 
 			if ($id==0) {
@@ -73,7 +73,7 @@
 			<tr>
 				<td><label>Categoría:</label></td>
 				<td>
-					<select name="txtCategoria">
+					<select name="lstCategoria">
 						<?php
 							// Conectamos con la BD:
 							require_once "../config/conexion.php";
