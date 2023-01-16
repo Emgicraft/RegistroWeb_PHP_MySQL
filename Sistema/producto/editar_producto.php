@@ -7,74 +7,83 @@
 </head>
 <body>
 	<h1>Editar Producto</h1><br>
-	<!--
-	<?php/*
-		if (isset($_GET["txtID"])) {
+	
+	<?php
+		if (isset($_GET["codProd"])) {
+			$id = $_GET["codProd"];
+
+			// Incluir un archivo PHP:
+			require_once "../config/conexion.php";
+
+			// Preparamos la sentencia SQL:
+			$sentencia = $cnx->prepare("SELECT * FROM producto WHERE id=:codP;");
+
+			// Pasamos los parámetros SQL:
+			$sentencia->bindvalue(":codP", $id);
+
+			// Ejecutamos la sentencia SQL:
+			$sentencia->execute();
+
+			// Sabemos que es una sola fila, así que la recojemos:
+			$fila = $sentencia->fetch();
+
+			// Guardamos los demas campos:
+			$descripcion = $fila["descripcion"];
+			$categoria = $fila["categoria"];
+			$precio = $fila["precio"];
+			
+		} elseif (isset($_GET["txtID"])) {
 			$id = $_GET["txtID"];
 			$descripcion = $_GET["txtDescripcion"];
 			$categoria = $_GET["txtCategoria"];
 			$precio = $_GET["txtPrecio"];
 
-			if ($id==0) {
-				// Insertar el nuevo Producto //
-				// Incluir un archivo PHP:
-				require_once "../config/conexion.php";
+			// Conectamos con la BD:
+			require_once "../config/conexion.php";
 
-				// Preparamos la sentencia SQL:
-				$sentencia = $cnx->prepare("INSERT INTO producto (descripcion, categoria, precio) values (:descripcion, :categoria, :precio);");
+			// Preparamos la sentencia SQL:
+			$sentencia = $cnx->prepare("UPDATE producto SET descripcion=:descr, categoria=:categ, precio=:precio WHERE id=:codPrd;");
 
-				// Pasamos los parámetros SQL:
-				$sentencia->bindvalue(":descripcion", $descripcion);
-				$sentencia->bindvalue(":categoria", $categoria);
-				$sentencia->bindvalue(":precio", $precio);
+			// Pasamos los parámetros SQL:
+			$sentencia->bindvalue(":codPrd", $id);
+			$sentencia->bindvalue(":descr", $descripcion);
+			$sentencia->bindvalue(":categ", $categoria);
+			$sentencia->bindvalue(":precio", $precio);
 
-				// Ejecutamos la sentencia SQL:
-				$sentencia->execute();
+			// Ejecutamos la sentencia SQL:
+			$sentencia->execute();
 
+			echo "<h3>Producto Actualizado</h3><br>";
 
-				// Recuperar el ID del nuevo producto //
-
-				// Preparamos otra sentencia SQL:
-				$sentencia = $cnx->prepare("SELECT max(id) as nuevoID FROM producto;");
-
-				// Ejecutamos la sentencia SQL:
-				$sentencia->execute();
-
-				// Sabemos que es una sola fila, así que la recojemos:
-				$fila = $sentencia->fetch();
-
-				// Guardamos el nuevo ID:
-				$id = $fila["nuevoID"];
-			}
-			
 		} else {
 			$id = 0;
 			$descripcion = "";
 			$categoria = "";
 			$precio = 0.0;
-		}*/
+		}
+		
 	?>
-	-->
+	
 	<form>
 		<table>
 			<tr>
 				<td><label>Código:</label></td>
-				<td><input type="text" name="txtID" size="6"></td>
+				<td><input type="text" name="txtID" size="6" value=<?php echo $id ?> readonly></td>
 			</tr>
 				<!-- Se pone 'name' a las etiquetas que enviaré. -->
 			<tr>
 				<td><label>Descripción:</label></td>
-				<td><input type="text" name="txtDescripcion" size="50"></td>
+				<td><input type="text" name="txtDescripcion" size="50" value="<?php echo $descripcion ?>"></td>
 			</tr>
 
 			<tr>
 				<td><label>Categoría:</label></td>
-				<td><input type="text" name="txtCategoria" size="25"></td>
+				<td><input type="text" name="txtCategoria" size="25" value="<?php echo $categoria ?>"></td>
 			</tr>
 
 			<tr>
 				<td><label>Precio (S/.):</label></td>
-				<td><input type="text" name="txtPrecio" size="12"></td>
+				<td><input type="text" name="txtPrecio" size="12" value=<?php echo $precio ?>></td>
 			</tr>
 
 			<tr>

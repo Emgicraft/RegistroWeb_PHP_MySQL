@@ -17,7 +17,7 @@
 
 			if ($id==0) {
 				// Insertar el nuevo Producto //
-				// Incluir un archivo PHP:
+				// Conectamos con la BD:
 				require_once "../config/conexion.php";
 
 				// Preparamos la sentencia SQL:

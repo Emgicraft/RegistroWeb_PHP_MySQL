@@ -205,3 +205,5 @@ SELECT max(id) as nuevoID FROM producto;
 DELETE FROM	producto WHERE id=79;
 
 SELECT * FROM cliente;
+
+SELECT max(id) as nuevoID FROM cliente;

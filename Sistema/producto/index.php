@@ -73,7 +73,7 @@
 			<td><?php echo $registro["descripcion"]; ?></td>
 			<td><?php echo $registro["categoria"]; ?></td>
 			<td><?php echo $registro["precio"]; ?></td>
-			<td><a href="<?php echo 'editar_producto.php?id='.$registro['id']; ?>">Editar</a></td>
+			<td><a href="<?php echo 'editar_producto.php?codProd='.$registro['id']; ?>">Editar</a></td>
 			<td><a href="">Eliminar</a></td>
 		</tr>
 
