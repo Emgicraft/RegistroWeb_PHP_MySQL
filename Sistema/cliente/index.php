@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cliente</title>
+	<script type="text/javascript">
+		function confirmar(ruta) {
+			var r = confirm("¿Está seguro que desea continuar?");
+			parent.location = r ? ruta : "";
+		}
+	</script>
 </head>
 <body>
 	<h1>Cliente</h1><br>
@@ -74,7 +80,7 @@
 			<option value="telefono">Por teléfono</option>
 		</select>
 		<input type="text" name="txtValor" value="<?php echo $valor ?>">
-		<input type="submit" name="btnBuscar" value="Buscar">
+		<input type="submit" value="Buscar">
 	</form>
 	<br>
 
