@@ -12,7 +12,7 @@
 		if (isset($_GET["codProd"])) {
 			$id = $_GET["codProd"];
 
-			// Incluir un archivo PHP:
+			// Conectamos a la BD:
 			require_once "../config/conexion.php";
 
 			// Preparamos la sentencia SQL:

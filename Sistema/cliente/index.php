@@ -97,6 +97,8 @@
 			<td><?php echo $registro["numruc"]; ?></td>
 			<td><?php echo $registro["direccion"]; ?></td>
 			<td><?php echo $registro["telefono"]; ?></td>
+			<td><a href="<?php echo 'editar_cliente.php?codCliente='.$registro['id']; ?>">Editar</a></td>
+			<td><a href="javascript:confirmar('eliminar_cliente.php?codCliente=<?php echo $registro["id"]; ?>')">Eliminar</a></td>
 		</tr>
 
 	<?php

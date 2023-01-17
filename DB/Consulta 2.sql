@@ -202,6 +202,11 @@ SELECT * FROM producto;
 
 SELECT * FROM producto WHERE id=33;
 
+SELECT * FROM producto WHERE id=NULL;
+
+SHOW COLUMNS FROM producto;
+
+
 UPDATE producto SET descripcion=, categoria=, precio= WHERE id=;
 
 SELECT max(id) as nuevoID FROM producto;
