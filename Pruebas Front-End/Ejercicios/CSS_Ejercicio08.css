@@ -1,0 +1,27 @@
+body {
+	color: #1fad44;
+}
+
+#menu li {
+	/*Mostrar en horizontal*/
+	display: inline;
+}
+
+#menu li a {
+	/*Quitar la linea predeterminada*/
+	text-decoration: none;
+
+	/*Nuestro formato al texto*/
+	color: blue;
+	font-family: Arial;
+	padding: 5px 25px 5px 25px; /*Arriba->Derecha->Abajo->Izquierda*/
+}
+
+#menu li a:hover {
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	width: 100px;
+	height: 50px;
+	transition: width 2s, height 5s;
+}

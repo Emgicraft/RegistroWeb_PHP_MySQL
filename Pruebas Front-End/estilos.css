@@ -1,0 +1,41 @@
+body {
+	margin: 0px 150px;
+	/*background-image: url("https://static.vecteezy.com/system/resources/previews/001/849/553/original/modern-gold-background-free-vector.jpg");*/
+	background-image: url("https://static.vecteezy.com/system/resources/previews/002/276/716/large_2x/abstract-geometric-background-in-flat-design-free-vector.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+#headPage {
+	display: block;
+}
+
+h1.titulo {
+	color: blue;
+	text-align: center;
+	background-color: #36af14bd;
+	margin: 0px;
+	padding: 3px 0px;
+
+	/*text-shadow: horizontal vertical difuminado color;*/
+	text-shadow: 2px 2px 3px #a359e9;
+}
+
+#menu {
+	text-align: center;
+	background-color: #41baeb;
+	padding: 3px 0px;
+}
+
+#menu a {
+	text-decoration: none;
+	background-color: #f1f1f1;
+	padding: 0px 20px;
+	display: inline-block;
+	width: 10%;
+}
+
+#menu a:hover {
+	background-color: green;
+	color: white;
+}
